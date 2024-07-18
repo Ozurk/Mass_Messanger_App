@@ -1,8 +1,13 @@
 #:kivy 2.3.0
 
 <MassMessage>
+    orientation: "vertical"
     Label:
         text: "Core Mechanical Mass Messaging App"
-    Button:
-        text: "Hello"
-        
+    BoxLayout:
+        TextInput:
+            id: Input1
+        Button:
+            text: "save"
+            on_press: root.create_user_list()
+         
