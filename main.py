@@ -6,6 +6,7 @@ from kivy.uix.button import Button
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.textinput import TextInput
+from kivy.uix.scrollview import ScrollView
 from tkinter import messagebox
 from kivy.properties import StringProperty
 from kivy.properties import DictProperty
@@ -36,15 +37,18 @@ class MassMessage(BoxLayout):
         print(self.phonebook)
     
     def create_user_list(self, *args):
-        self.clear_widgets()
-        userlist = GridLayout(rows=10, cols=20)
-        self.add_widget(userlist)
+        userlist = GridLayout(rows=100, cols=5, size_hint_y=None, height=self.height )
+        scrollwidget = ScrollView()
+        scrollwidget.add_widget(userlist)
+        self.add_widget(scrollwidget)
         for key in self.phonebook:
-            new_button = Button(text=f'{key}', font_size=10, height=15)
+            new_button = Button(text=f'{key}', font_size=10)
             userlist.add_widget(new_button)
-            print(type(self.phonebook))
         
-    
+        
+
+        
+
             
 
             
