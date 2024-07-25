@@ -1,13 +1,58 @@
 #:kivy 2.3.0
 
+
+
 <MassMessage>
-    orientation: "vertical"
-    Label:
-        text: "Core Mechanical Mass Messaging App"
-    BoxLayout:
-        TextInput:
-            id: Input1
+    StartScreen:
+    NameSelectorScreen:
+
+<StartScreen>
+    BoxLayout: 
+        orientation: "vertical"
+        name: "StartScreen"
+        padding:40
+        Label:
+            text: 'Core Mechanical Mass Messaging App'
+            font_size: 36
+            halign: 'center'
+            valign: 'middle'
+            size_hint_y: .2
         Button:
-            text: "save"
-            on_press: root.create_user_list()
-         
+            size_hint_y: .3
+            text: "Continue"
+            on_release: app.root.current = "NameSelectorScreen"
+            font_size: 25
+        Button:
+            size_hint_y: .1
+            text: "Help"
+
+<NameSelectorScreen>
+    name: "NameSelectorScreen"
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            size_hint_y: .1
+            text: "Select the team members you would like to message"
+        Button:
+            size_hint_y: .1
+            text: "Begin"
+            on_release: root.create_tech_names()
+        BoxLayout:
+            size_hint_y: .1
+            Button:
+                text: "Select All"
+            Button:
+                text: "Unselect All"
+        ScrollView:
+            size_hint_y: .7
+            GridLayout:
+
+                id: NameGrid
+                size_hint_y: None
+                height: 30000
+                rows:1000
+                cols:4
+
+
+
+            
