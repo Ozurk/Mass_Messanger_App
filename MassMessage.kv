@@ -34,10 +34,6 @@
         Label:
             size_hint_y: .1
             text: "Select the team members you would like to message"
-        Button:
-            size_hint_y: .1
-            text: "Begin"
-            on_release: root.create_tech_names()
         BoxLayout:
             size_hint_y: .1
             Button:
@@ -60,8 +56,13 @@
 <ReviewScreen>
     name: "ReviewScreen"
     BoxLayout:
-        Label:
-            text: str(root.get_recipients())
+        ScrollView:
+            Label:
+                id: recipients_label
+                size_hint: 1, None
+                text_size: self.width, None
+                height: self.texture_size[1]
+                text: app.recipients_var
         TextInput:
     BoxLayout:
         size_hint_y: .25

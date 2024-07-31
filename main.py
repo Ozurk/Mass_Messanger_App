@@ -16,6 +16,7 @@ import pandas
 from kivy.lang.builder import Builder
 
 
+
 def get_dict_from_csv(path_to_csv):
     csv_file = pandas.read_csv(path_to_csv)
     phonebook = csv_file.set_index('Full Name')['Personal Phone'].to_dict()
@@ -24,46 +25,61 @@ def get_dict_from_csv(path_to_csv):
     return result_dict
 
 
-class MassMessage(ScreenManager):
+class MassMessageApp(App):
     message = StringProperty("")
     phonebook = get_dict_from_csv("data/SF Employee.csv")
     recipients = {}
+    recipients_var = StringProperty(str(recipients))
+
+    def build(self):
+        return MassMessage()
+    
+    def update_recipients_var(self):
+        self.recipients_var = str(self.recipients).replace(",", "\n")
+
+
+class MassMessage(ScreenManager):
+    pass
 
 
 class StartScreen(Screen):
     pass
 
 class ReviewScreen(Screen):
-    def get_recipients(self):
-        return MassMessage.recipients
-
-    
+    def on_enter(self, *args):
+        app = App.get_running_app()
+        app.update_recipients_var()
+        self.ids.recipients_label.text = app.recipients_var
 
 
 class NameSelectorScreen(Screen):
-    tech_names = MassMessage.phonebook.keys()
+    tech_names = MassMessageApp.phonebook.keys()
+    def on_enter(self, *args):
+        self.create_tech_names()
+        return super().on_enter(*args)
+        
 
     def change_button_color(self, instance):
         print(instance.background_color)
         if instance.background_color == [1, 0, 0, 1]:
             instance.background_color = (1, 1, 1, 1)
-            MassMessage.recipients.pop(instance.text)
+            MassMessageApp.recipients.pop(instance.text)
             
         else:
             instance.background_color = (1, 0, 0, 1)
-            MassMessage.recipients[instance.text] = MassMessage.phonebook[instance.text]
+            MassMessageApp.recipients[instance.text] = MassMessageApp.phonebook[instance.text]
             
-        print(MassMessage.recipients)
+        print(MassMessageApp.recipients)
 
     def select_unselect_all(self):
         for button in self.ids.NameGrid.children:
             if button.background_color == [1, 0, 0, 1]:
                 button.background_color = (1, 1, 1, 1)
-                MassMessage.recipients.pop(button.text)
+                MassMessageApp.recipients.pop(button.text)
             else:
                 button.background_color = (1, 0, 0, 1)
-                MassMessage.recipients[button.text] = MassMessage.phonebook[button.text]
-        print(MassMessage.recipients)
+                MassMessageApp.recipients[button.text] = MassMessageApp.phonebook[button.text]
+        print(MassMessageApp.recipients)
             
 
     def create_tech_names(self):
@@ -75,9 +91,6 @@ class NameSelectorScreen(Screen):
             
 
 
-class MassMessageApp(App):
-    def build(self):
-        return MassMessage()
 
 
 if __name__ == '__main__':
