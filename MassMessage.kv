@@ -6,6 +6,7 @@
     StartScreen:
     NameSelectorScreen:
     ReviewScreen:
+    FinalReview:
 
 <StartScreen>
     BoxLayout: 
@@ -37,7 +38,7 @@
         BoxLayout:
             size_hint_y: .1
             Button:
-                text: "Select All"
+                text: "Select/ Unselect All"
                 on_release: root.select_unselect_all()
         ScrollView:
             size_hint_y: .7
@@ -52,11 +53,46 @@
             text: "Continue"
             on_release: app.root.current = "ReviewScreen"
 
+<FinalReview>
+    name: "FinalReview"
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "Final Review"
+            font_size: 60
+            color: 1, 0, 0, 1
+            size_hint_y: .2
+            canvas.before:
+                Color:
+                    rgba: 0, .5, .2, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+        BoxLayout:
+            ScrollView:
+                size_hint_x: .4
+                Label:
+                    text_size: self.width, None
+                    height: self.texture_size[1]
+                    text: app.recipients_var
+            Label:
+                text_size: self.width, None
+                text: app.message
+                halighn: 'center'
+                valign: "middle"
+
+    BoxLayout:
+        size_hint_y: .15
+        Button:
+            text: "Send Massage"
+            on_press: app.send_mass_message()
+
 
 <ReviewScreen>
     name: "ReviewScreen"
     BoxLayout:
         ScrollView:
+            size_hint_x: .4
             Label:
                 id: recipients_label
                 size_hint: 1, None
@@ -64,9 +100,11 @@
                 height: self.texture_size[1]
                 text: app.recipients_var
         TextInput:
+            id: message_input
     BoxLayout:
         size_hint_y: .25
         Button:
             text: "continue"
+            on_press: app.root.current = "FinalReview"
 
 

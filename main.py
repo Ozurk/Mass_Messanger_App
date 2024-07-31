@@ -31,12 +31,17 @@ class MassMessageApp(App):
     recipients = {}
     recipients_var = StringProperty(str(recipients))
 
+    def send_mass_message(self):
+        print(self.message, self.recipients)
+
     def build(self):
         return MassMessage()
     
+    
     def update_recipients_var(self):
         self.recipients_var = str(self.recipients).replace(",", "\n")
-
+    
+    
 
 class MassMessage(ScreenManager):
     pass
@@ -50,6 +55,17 @@ class ReviewScreen(Screen):
         app = App.get_running_app()
         app.update_recipients_var()
         self.ids.recipients_label.text = app.recipients_var
+
+    def on_pre_leave(self, *args):
+        app = App.get_running_app()
+        app.message = self.ids.message_input.text
+        print(app.message)
+        return super().on_pre_leave(*args)
+    
+ 
+class FinalReview(Screen):
+    pass
+
 
 
 class NameSelectorScreen(Screen):
