@@ -5,6 +5,7 @@
 <MassMessage>
     StartScreen:
     NameSelectorScreen:
+    ReviewScreen:
 
 <StartScreen>
     BoxLayout: 
@@ -41,18 +42,30 @@
             size_hint_y: .1
             Button:
                 text: "Select All"
-            Button:
-                text: "Unselect All"
+                on_release: root.select_unselect_all()
         ScrollView:
             size_hint_y: .7
             GridLayout:
-
                 id: NameGrid
                 size_hint_y: None
                 height: 30000
                 rows:1000
                 cols:4
+        Button:
+            size_hint_y: .15
+            text: "Continue"
+            on_release: app.root.current = "ReviewScreen"
 
 
+<ReviewScreen>
+    name: "ReviewScreen"
+    BoxLayout:
+        Label:
+            text: str(root.get_recipients())
+        TextInput:
+    BoxLayout:
+        size_hint_y: .25
+        Button:
+            text: "continue"
 
-            
+
