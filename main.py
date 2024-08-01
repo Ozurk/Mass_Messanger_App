@@ -32,7 +32,10 @@ class MassMessageApp(App):
     recipients_var = StringProperty(str(recipients))
 
     def send_mass_message(self):
-        print(self.message, self.recipients)
+        for team_members in self.recipients:
+            print(team_members, f" +1{self.recipients[team_members]}")
+    
+
 
     def build(self):
         return MassMessage()
@@ -59,7 +62,6 @@ class ReviewScreen(Screen):
     def on_pre_leave(self, *args):
         app = App.get_running_app()
         app.message = self.ids.message_input.text
-        print(app.message)
         return super().on_pre_leave(*args)
     
  
@@ -76,7 +78,6 @@ class NameSelectorScreen(Screen):
         
 
     def change_button_color(self, instance):
-        print(instance.background_color)
         if instance.background_color == [1, 0, 0, 1]:
             instance.background_color = (1, 1, 1, 1)
             MassMessageApp.recipients.pop(instance.text)
@@ -85,7 +86,6 @@ class NameSelectorScreen(Screen):
             instance.background_color = (1, 0, 0, 1)
             MassMessageApp.recipients[instance.text] = MassMessageApp.phonebook[instance.text]
             
-        print(MassMessageApp.recipients)
 
     def select_unselect_all(self):
         for button in self.ids.NameGrid.children:
@@ -95,7 +95,6 @@ class NameSelectorScreen(Screen):
             else:
                 button.background_color = (1, 0, 0, 1)
                 MassMessageApp.recipients[button.text] = MassMessageApp.phonebook[button.text]
-        print(MassMessageApp.recipients)
             
 
     def create_tech_names(self):

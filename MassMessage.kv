@@ -15,7 +15,8 @@
         padding:40
         Label:
             text: 'Core Mechanical Mass Messaging App'
-            font_size: 36
+            text_size: self.size
+            font_size: 30
             halign: 'center'
             valign: 'middle'
             size_hint_y: .2
@@ -91,19 +92,30 @@
 <ReviewScreen>
     name: "ReviewScreen"
     BoxLayout:
-        ScrollView:
-            size_hint_x: .4
-            Label:
-                id: recipients_label
-                size_hint: 1, None
-                text_size: self.width, None
-                height: self.texture_size[1]
-                text: app.recipients_var
-        TextInput:
-            id: message_input
-    BoxLayout:
-        size_hint_y: .25
+        orientation: "vertical"
+        BoxLayout:
+            ScrollView:
+                size_hint_x: .4
+                Label:
+                    id: recipients_label
+                    size_hint: 1, None
+                    text_size: self.width, None
+                    height: self.texture_size[1]
+                    text: app.recipients_var
+            BoxLayout:
+                orientation: "vertical"
+                Label:
+                    text: "Type the message below"
+                    halign: "center"
+                    valign: "middle"
+                    color: 2, 1, .75, 1
+                    font_size: 26
+                    text_size: self.size
+                TextInput:
+                    text_size: 100
+                    id: message_input
         Button:
+            size_hint_y: .2
             text: "continue"
             on_press: app.root.current = "FinalReview"
 
