@@ -7,21 +7,41 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.textinput import TextInput
 from kivy.uix.scrollview import ScrollView
 from kivy.properties import StringProperty
-
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.popup import Popup
 import pandas
-
 from twilio.rest import Client # uncomment this to 'remove' the safety
 from twilio.base.exceptions import TwilioRestException
+from time import sleep
 
-def live_twilio_api(sender, reciepient, message):
-        client = Client()
+
+
+def live_twilio_api(sender, recipient, message_body):
+    client = Client()
+    try:
         message = client.messages.create(
-            body=message,
+            body=message_body,
             from_=sender,
-            to=reciepient,)
-        return message
+            to=recipient
+        )
+        message_sid = message.sid
+        fetched_message = client.messages(message_sid).fetch()
+        status = fetched_message.status
+        print(f'Message Status: {status}')
+        for x in range(10):
+            if status == "delivered" or "sent": 
+                return status
+            else:
+                sleep(1)
+                fetched_message = client.messages(message_sid).fetch()
+                status = fetched_message.status
+        return status
+            
+    
+    except TwilioRestException as e:
+        print(f'Error: {e}')
+        return None
+
 
 
 def get_dict_from_csv(path_to_csv):
@@ -37,18 +57,15 @@ class MassMessageApp(App):
     phonebook = get_dict_from_csv("data/SF Employee.csv")
     recipients = {}
     recipients_var = StringProperty(str(recipients))
-    status = ""
+    status = StringProperty("")
 
     def send_mass_message(self):
         for team_member in self.recipients:
-            try:
-                recipient = f" +1{self.recipients[team_member]}"
-                sender = "+18667987568"
-                message = self.message
-                self.status = live_twilio_api(sender, recipient, message)
-                print(f"{message, sender, recipient}")
-            except TwilioRestException as e:
-                self.exception = e
+            recipient = f" +1{self.recipients[team_member]}"
+            sender = "+18667987568"
+            message = self.message
+            self.status = live_twilio_api(sender, recipient, message)
+            print(f"{message, sender, recipient}")
 
     def build(self):
         return MassMessage()
