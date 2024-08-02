@@ -1,4 +1,3 @@
-import kivy
 from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.uix.label import Label
@@ -7,14 +6,14 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.textinput import TextInput
 from kivy.uix.scrollview import ScrollView
-from tkinter import messagebox
 from kivy.properties import StringProperty
-from kivy.properties import DictProperty
-from pprint import pprint
+
 from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.uix.popup import Popup
 import pandas
-from kivy.lang.builder import Builder
-# from twilio.rest import Client # uncomment this to 'remove' the safety
+
+from twilio.rest import Client # uncomment this to 'remove' the safety
+from twilio.base.exceptions import TwilioRestException
 
 def live_twilio_api(sender, reciepient, message):
         client = Client()
@@ -22,6 +21,7 @@ def live_twilio_api(sender, reciepient, message):
             body=message,
             from_=sender,
             to=reciepient,)
+        return message
 
 
 def get_dict_from_csv(path_to_csv):
@@ -37,18 +37,18 @@ class MassMessageApp(App):
     phonebook = get_dict_from_csv("data/SF Employee.csv")
     recipients = {}
     recipients_var = StringProperty(str(recipients))
+    status = ""
 
     def send_mass_message(self):
         for team_member in self.recipients:
-            recipient = f" +1{self.recipients[team_member]}"
-            sender = "+18667987568"
-            message = self.message
-            live_twilio_api(sender, recipient, message)
-            print(f"{message, sender, recipient}")
-
-    
-
-
+            try:
+                recipient = f" +1{self.recipients[team_member]}"
+                sender = "+18667987568"
+                message = self.message
+                self.status = live_twilio_api(sender, recipient, message)
+                print(f"{message, sender, recipient}")
+            except TwilioRestException as e:
+                self.exception = e
 
     def build(self):
         return MassMessage()
@@ -91,22 +91,22 @@ class NameSelectorScreen(Screen):
         
 
     def change_button_color(self, instance):
-        if instance.background_color == [1, 0, 0, 1]:
+        if instance.background_color == [0, 1, 0, 1]:
             instance.background_color = (1, 1, 1, 1)
             MassMessageApp.recipients.pop(instance.text)
             
         else:
-            instance.background_color = (1, 0, 0, 1)
+            instance.background_color = (0, 1, 0, 1)
             MassMessageApp.recipients[instance.text] = MassMessageApp.phonebook[instance.text]
             
 
     def select_unselect_all(self):
         for button in self.ids.NameGrid.children:
-            if button.background_color == [1, 0, 0, 1]:
+            if button.background_color == [0, 1, 0, 1]:
                 button.background_color = (1, 1, 1, 1)
                 MassMessageApp.recipients.pop(button.text)
             else:
-                button.background_color = (1, 0, 0, 1)
+                button.background_color = (0, 1, 0, 1)
                 MassMessageApp.recipients[button.text] = MassMessageApp.phonebook[button.text]
             
 
@@ -118,6 +118,11 @@ class NameSelectorScreen(Screen):
             namegrid.add_widget(btn)
             
 
+class ProcessingScreen(Screen):
+    def on_enter(self, *args):
+        app = App.get_running_app()
+        app.send_mass_message()
+        return super().on_enter(*args)
 
 
 

@@ -7,6 +7,7 @@
     NameSelectorScreen:
     ReviewScreen:
     FinalReview:
+    ProcessingScreen:
 
 <StartScreen>
     BoxLayout: 
@@ -40,18 +41,21 @@
             size_hint_y: .1
             Button:
                 text: "Select/ Unselect All"
+                background_color: 0, .5, 1, 1
                 on_release: root.select_unselect_all()
         ScrollView:
             size_hint_y: .7
             GridLayout:
                 id: NameGrid
                 size_hint_y: None
-                height: 30000
+                height: 3000
                 rows:1000
                 cols:4
         Button:
             size_hint_y: .15
             text: "Continue"
+            background_color: 2, 2, 2, 1
+            color: (0, 0, 0, 1)
             on_release: app.root.current = "ReviewScreen"
 
 <FinalReview>
@@ -79,14 +83,22 @@
             Label:
                 text_size: self.width, None
                 text: app.message
-                halighn: 'center'
+                halign: 'center'
                 valign: "middle"
+                font_size: 40
 
     BoxLayout:
         size_hint_y: .15
         Button:
-            text: "Send Massage"
-            on_press: app.send_mass_message()
+            text: "go back"
+            font_size: 40
+            background_color: 0, 1, 0, 1
+            on_press: app.root.current = "NameSelectorScreen"
+        Button:
+            size_hint_x: .2
+            text: "Send Message"
+            on_press: app.root.current = "ProcessingScreen"
+            background_color: 1, 0, 0, 1
 
 
 <ReviewScreen>
@@ -117,6 +129,25 @@
         Button:
             size_hint_y: .2
             text: "continue"
+            background_color: 0, 1, 0, 1
             on_press: app.root.current = "FinalReview"
+        Button:
+            size_hint_y: .2
+            text: "go back"
+            on_press: app.root.current = "NameSelectorScreen"
 
+
+<ProcessingScreen>
+    name: "ProcessingScreen"
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "Status"
+            font_size: 45
+            size_hint_y: .2
+        Label: 
+            text:app.status
+        Button:
+            size_hint_y: .2
+            text: "Start Over"
 
