@@ -14,7 +14,14 @@ from pprint import pprint
 from kivy.uix.screenmanager import ScreenManager, Screen
 import pandas
 from kivy.lang.builder import Builder
+# from twilio.rest import Client # uncomment this to 'remove' the safety
 
+def live_twilio_api(sender, reciepient, message):
+        client = Client()
+        message = client.messages.create(
+            body=message,
+            from_=sender,
+            to=reciepient,)
 
 
 def get_dict_from_csv(path_to_csv):
@@ -32,9 +39,15 @@ class MassMessageApp(App):
     recipients_var = StringProperty(str(recipients))
 
     def send_mass_message(self):
-        for team_members in self.recipients:
-            print(team_members, f" +1{self.recipients[team_members]}")
+        for team_member in self.recipients:
+            recipient = f" +1{self.recipients[team_member]}"
+            sender = "+18667987568"
+            message = self.message
+            live_twilio_api(sender, recipient, message)
+            print(f"{message, sender, recipient}")
+
     
+
 
 
     def build(self):
