@@ -10,7 +10,7 @@ from kivy.properties import StringProperty
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.popup import Popup
 import pandas
-from twilio.rest import Client # uncomment this to 'remove' the safety
+from twilio.rest import Client # comment this to engage the safety
 from twilio.base.exceptions import TwilioRestException
 from time import sleep
 
@@ -53,7 +53,7 @@ def get_dict_from_csv(path_to_csv):
 
 
 class MassMessageApp(App):
-    message = StringProperty("")
+    message = StringProperty("Pending")
     phonebook = get_dict_from_csv("data/SF Employee.csv")
     recipients = {}
     recipients_var = StringProperty(str(recipients))
@@ -66,6 +66,7 @@ class MassMessageApp(App):
             message = self.message
             self.status = live_twilio_api(sender, recipient, message)
             print(f"{message, sender, recipient}")
+        self.status = "Messages have been sent!"
 
     def build(self):
         return MassMessage()

@@ -65,34 +65,22 @@
         Label:
             text: "Final Review"
             font_size: 60
-            color: 1, 0, 0, 1
+            color: 1, 1, 1, 1
             size_hint_y: .2
-            canvas.before:
-                Color:
-                    rgba: 0, .5, .2, 1
-                Rectangle:
-                    size: self.size
-                    pos: self.pos
-        BoxLayout:
-            ScrollView:
-                size_hint_x: .4
-                Label:
-                    text_size: self.width, None
-                    height: self.texture_size[1]
-                    text: app.recipients_var
-            Label:
-                text_size: self.width, None
-                text: app.message
-                halign: 'center'
-                valign: "middle"
-                font_size: 40
+        
+                
+        Label:
+            text_size: self.width, None
+            text: app.message
+            halign: 'center'
+            valign: "middle"
+            font_size: 40
 
     BoxLayout:
         size_hint_y: .15
         Button:
             text: "go back"
             font_size: 40
-            background_color: 0, 1, 0, 1
             on_press: app.root.current = "NameSelectorScreen"
         Button:
             size_hint_x: .2
@@ -124,8 +112,9 @@
                     font_size: 26
                     text_size: self.size
                 TextInput:
-                    text_size: 100
+                    padding:
                     id: message_input
+                    size_hint_y: .4
         Button:
             size_hint_y: .2
             text: "continue"
