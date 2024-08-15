@@ -1,115 +1,147 @@
-Full Name,Personal Phone,Status,Role Name
-Aaron Hoffman,5745261646,active,Technician
-Adam Russell,5742531272,active,Technician
-Adam Strasser,5746012378,active,Admin
-Adolfo Romero,9034059231,active,Technician
-Aldo Romero,2544440284,active,Technician
-Alex Hadley,2318181864,active,Technician
-Andrew Davison,5745493883,active,Technician
-Andrew Eldridge,5742687362,active,Office
-Andy Strasser,5748359068,active,Office
-Angel Hernandez,5747023590,active,Technician
-Ashley Gaerte,2604435828,active,Office
-Bailey Perkins,2604376788,active,Technician
-Blake Plummer,5746531123,active,Technician
-Blayne Townsend,5747807348,active,Technician
-Bobby Wilson,5746016511,active,Office
-Brad Kelley,5747271193,active,Office
-Bret Airgood,2607246890,active,Technician
-Brett Zartman,2603485862,active,Technician
-Britt Simmons,5743988768,active,Technician
-Brody Cooper,5743282213,active,Technician
-Brody Townsend,5748354037,active,Technician
-Bryan Romero,3183217958,active,Technician
-Bryan VanCoutren,5742421244,active,Technician
-Caleb Callaway,2603887719,active,Office
-Canaan Skeens,2602980706,active,Technician
-Carol Craft,5742022510,active,Office
-Chris Snyder,5745510454,active,Technician
-Cole Irvine,5748501104,active,Technician
-Corey Thomas,5748356976,active,Technician
-Darin Schuman,5743200726,active,Admin
-Darren Osborn,5743367629,active,Technician
-Darson Bradley,2605782251,active,Technician
-David Baker,5743282706,active,Technician
-David Bowyer,2602131099,active,Office
-Derek Carter,5743282372,active,Technician
-Derek Shafer,5748355840,active,Technician
-Domanic Hersemann,5742011796,active,Technician
-Don Curtis,7658609848,active,Technician
-Drake Hyden,2608020020,active,Technician
-Drew Strasser,5748352066,active,Office
-Dusty Butterbaugh,574-453-1351,active,Technician
-Dylan Prater,5745510753,active,Technician
-Dylan Ruff,5747324246,active,Technician
-Eric White,3038809054,active,Office
-Erik Baez,5745516945,active,Technician
-Etta Barth,5742103978,active,Office
-Evan Friedersdorf,7654607601,active,Project Manager
-Greg Lewis,5748355892,active,Office
-Harry Barrett,2605781918,active,Technician
-Hunter Metzger,5744025134,active,Admin
-Hunter Stanley,3529333041,active,Technician
-Isaac Randall,5748359975,active,Technician
-Izaac Fale,5746010016,active,Technician
-JT Prater,2609011018,active,Technician
-Jacob Lisenby,5742659936,active,Office
-Jaden Seward,5747020207,active,Technician
-Jaime Martinez,5743066303,active,Technician
-Jared Tyler,5748352488,active,Office
-Jason Shepherd,5743777763,active,Technician
-Jasun Blocher,5745510394,active,Admin
-Javier Ortiz,5742658757,active,Technician
-Jaxon Torpy,5743282117,active,Technician
-Jay Myers,5748937966,active,Technician
-Jeb Smith,574-200-9695,active,Technician
-Jeremy Lawlor,5744536444,active,Technician
-Jesse Shriver,5748356814,active,Technician
-Joel Light,5745494775,active,Technician
-John Robertson,5742485746,active,Technician
-Jon Stamper,5749331754,active,Office
-Jonathan Brewer,5745516950,active,Technician
-Jorden Bitterling,5745955359,active,Technician
-Josh Baker,5748353147,active,Technician
-Josh Cripe,2602298980,active,Technician
-Josh Danner,5745516471,active,Office
-Josh Dickerson,5745272351,active,Technician
-Justin Gross,2607604685,active,Office
-Kedren Callaway,2608021239,active,Technician
-Kerry Keeps,2603308686,active,Technician
-Kirk BonDurant,5742106132,active,Technician
-Kole Smith,5743777377,active,Technician
-Kyle Draper,7023435393,active,Technician
-Layne Blocher,2602139133,active,Technician
-Matt Nafziger,3174558779,active,Office
-Matt Zellers,5742420900,active,Technician
-Megan Miller,5743067601,active,Office
-Michael Siefers,7653375435,active,Technician
-Mike Bromberg,5742421155,active,Technician
-Mike Wilcox,5742019136,active,Office
-Myah Garcia,5618014881,active,Office
-Nate Kilty,7652024544,active,Office
-Nick Robbins,5742651699,active,Technician
-Noah Dickerson,5745511373,active,Technician
-Oto Contreras,5742687813,active,Technician
-Parker Lenfestey,5745274547,active,Technician
-Randy Ruppert,2603883563,active,Office
-Rolondo Marin,5735511016,active,Technician
-Ross Raffel,5748170690,active,Office
-Ryan Clark,5747271126,active,Technician
-Shawna Howard,5742656122,active,Office
-Steve Searles,2609019641,active,Office
-Tara Warner,,active,Admin
-Tarrin Worden,2602297026,active,Technician
-Thomas Conley,5745291267,active,Technician
-Tim Popenfoose,5745263300,active,Office
-Tony Rogers,5748359715,active,Technician
-Trace Murphy,2603061136,active,Technician
-Tracy Marshall,5745278933,active,Technician
-Trent Crabtree,2603061602,active,Office
-Tristan Gawthrop,2605789318,active,Technician
-Troy Fifer,5742653694,active,Technician
-Tyler Packard,7654139290,active,Technician
-Wayne Weaver,2198636964,active,Technician
-Wesley Meadows,5748354344,active,Technician
-Zeke McSherry,5743716575,active,Office
+Full Name,First of Department Name,Work Phone
+Aaron Burris,Piping Install,2604152362
+Aaron Denham,Plumbing Install,5415243108
+Aaron Hoffman,HVAC PMs,5742561646
+Adam Russell,Piping Install,5742531272
+Adam Strasser,Office,5746012378
+Adolfo Romero,Elevated Insulation,9034059231
+Aldo Romero,Elevated Scaffolding,2544440284
+Alex Garza,Piping Install,7654324483
+Alex Hadley,Piping Install,2318181864
+Andrew Davison,Piping Install,5745493883
+Andrew Eldridge,HVAC PMs,5742687362
+Andy Strasser,Piping Install,5748359068
+Angel Hernandez,Piping Install,5747023590
+Ashley Gaerte,Plumbing Install,2604435828
+Bailey Perkins,Plumbing Service,2604376788
+Blake Plummer,Piping Install,5746531123
+Blayne Townsend,Piping Install,5747807348
+Bob Hall,Plumbing Install,5747212007
+Bobby Wilson,HVAC Service,5746016511
+Brad Kelley,Office,5747271193
+Brad Ruckman,Plumbing Install,2602297037
+Bret Airgood,Plumbing Install,2607046890
+Brett Zartman,Piping Install,2603485862
+Britt Simmons,HVAC PMs,5743988768
+Brody Cooper,HVAC Service,5743282213
+Brody Townsend,Piping Install,5748354037
+Bryan Romero,Elevated Insulation,3183217958
+Bryan VanCoutren,Piping Install,5742421244
+Cade Krider,Plumbing Install,5745518741
+Caleb Callaway,HVAC Service,2603887719
+Canaan Skeens,Plumbing Service,2602980706
+Carol Craft,Office,5748580242
+Chris Snyder,Piping Install,5745510454
+Cole Irvine,HVAC Install,5748501104
+Collin Thomas,HVAC Install,5745295497
+Corey Thomas,Plumbing Install,5748356976
+Darin Schuman,Office,5743200726
+Darren Osborn,Piping Install,5743367629
+Darson Bradley,Plumbing Install,2605782251
+David Baker,Plumbing Install,5743282706
+David Bowyer,Office,2602131099
+Derek Carter,HVAC Install,5743286343
+Derek Shafer,Plumbing Install,5748355840
+Domanic Hersemann,Piping Install,5742011796
+Don Curtis,Piping Install,7658609848
+Donivan Fale,Piping Install,5743360370
+Doug Heinold,Office,5745275873
+Drake Hyden,HVAC PMs,2608020020
+Drew Strasser,Piping Install,5748352066
+Dusty Butterbaugh,HVAC Install,574-453-1351
+Dylan Prater,HVAC Service,5745510753
+Dylan Ruff,Piping Install,5747324246
+Eliza Paton,Piping Install,5742538693
+Eric White,Office,3038809054
+Erik Baez,Elevated Scaffolding,5745516945
+Etta Barth,Office,5742103978
+Evan Friedersdorf,Piping Install,7654607601
+Greg Lewis,Piping Install,5748355892
+Harry Barrett,HVAC Service,2605781918
+Hunter Metzger,Office,5744025134
+Hunter Non-Admin Metzger,Shop,15744025134
+Hunter Stanley,Plumbing Install,3529333041
+Isaac Randall,HVAC Install,5748359975
+Izaac Fale,Plumbing Install,5746010016
+JT Prater,HVAC Install,2609011018
+Jacob Lisenby,Plumbing Service,5742659936
+Jaden Seward,HVAC PMs,5747020207
+Jaime Martinez,Elevated Scaffolding,5743066303
+Jake Furbee,Office,5745298012
+Jake Roller,Piping Install,5746017247
+Jared Tyler,Office,5748352488
+Jason Shepherd,HVAC Install,5743777763
+Jasun Blocher,Office,5745510394
+Javier Ortiz,Elevated Insulation,5742658757
+Jaxon Torpy,HVAC Install,5743282117
+Jay Myers,HVAC PMs,5748937966
+Jeb Smith,Plumbing Install,574-200-9695
+Jeremie Slone,Office,5745513951
+Jeremy Lawlor,HVAC Service,5745436444
+Jesse Shriver,Piping Install,5748356814
+Jim Gatewood,Piping Install,3173798754
+Joe Harrison,Piping Install,5748354681
+Joe Hunsberger,HVAC Service,5742688793
+Joel Light,HVAC Install,5745494775
+John Field,Plumbing Install,5745272207
+John Robertson,Plumbing Install,5742485746
+John Teifke,Piping Install,2693133195
+Jon Stamper,Plumbing Install,5749331754
+Jonathan Brewer,HVAC Install,5745516950
+Jorden Bitterling,Plumbing Install,5745955359
+Josh Baker,Piping Install,5748353147
+Josh Cripe,HVAC Install,2602298980
+Josh Danner,HVAC Install,5745516471
+Josh Dickerson,Plumbing Install,5745272351
+Justin Gross,Elevated Insulation,2607604685
+Kedren Callaway,HVAC PMs,2608021239
+Kerry Keeps,Piping Install,2603308686
+Kirk BonDurant,Piping Install,5742106132
+Kole Komdeur,Piping Install,5743778313
+Kole Smith,Office,5743777377
+Kyle Draper,Piping Install,7023435393
+Layne Blocher,HVAC PMs,2602139133
+Luis Casanueva,Elevated Scaffolding,2602785345
+Matt Nafziger,Office,3174558779
+Matt Zellers,Piping Install,5742420900
+Megan Miller,Office,5743067601
+Michael Berkshire,Piping Install,5748709766
+Michael Siefers,Elevated Scaffolding,7653375435
+Mike Bromberg,Piping Install,5742421155
+Mike Hoover,Office,5743169988
+Mike Wilcox,Plumbing Install,5742019136
+Myah Garcia,Office,5618014881
+Nate Kilty,Piping Install,7652024544
+Nick Robbins,Plumbing Install,5742651699
+Noah Dickerson,Plumbing Install,5745511373
+Noe Blandon,Elevated Insulation,3174965682
+Odelui Henriquez,Elevated Insulation,4092936804
+Oto Contreras,Elevated Insulation,5742687813
+Parker Lenfestey,Elevated Scaffolding,5745274547
+Pedro Hernandez,Piping Install,5743987048
+Randy Abbott,Piping Install,2174741987
+Randy Ruppert,HVAC Service,2603883563
+Rolondo Marin,Elevated Insulation,5735511016
+Ross Raffel,Office,5748170690
+Ryan Clark,Plumbing Install,5747271126
+Sergio Guerra,Elevated Scaffolding,3176756858
+Shawna Howard,Office,5742656122
+Shea Kelley,HVAC PMs,5747219870
+Silas Gagnon,Plumbing Install,9284584221
+Steve Searles,Office,2609019641
+Tara Warner,Office,2192109771
+Tarrin Worden,Plumbing Install,2602297026
+Thomas Conley,Piping Install,5745291267
+Thomas Coulter,Piping Install,5742531602
+Tim Popenfoose,Office,5745263300
+Tony Rogers,Plumbing Install,5748359715
+Trace Murphy,Plumbing Install,2603061136
+Tracy Marshall,Plumbing Service,5745278933
+Trent Crabtree,Plumbing Install,2603061602
+Tristan Gawthrop,HVAC Service,2605789318
+Troy Fifer,HVAC Install,5742653694
+Tyler Packard,HVAC Install,7654139290
+Wayne Weaver,Piping Install,2198636964
+Wesley Meadows,Piping Install,5748354344
+Wilson Daulton,Piping Install,5748359385
+Zeke McSherry,Office,5743716575

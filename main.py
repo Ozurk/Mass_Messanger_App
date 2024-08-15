@@ -32,7 +32,7 @@ def live_twilio_api(sender, recipient, message_body):
             if status == "delivered" or "sent": 
                 return status
             else:
-                sleep(1)
+                sleep(.2)
                 fetched_message = client.messages(message_sid).fetch()
                 status = fetched_message.status
         return status
@@ -46,7 +46,7 @@ def live_twilio_api(sender, recipient, message_body):
 
 def get_dict_from_csv(path_to_csv):
     csv_file = pandas.read_csv(path_to_csv)
-    phonebook = csv_file.set_index('Full Name')['Personal Phone'].to_dict()
+    phonebook = csv_file.set_index('Full Name')['Work Phone'].to_dict()
     result_dict = phonebook
 
     return result_dict
@@ -80,6 +80,8 @@ class MassMessageApp(App):
 class MassMessage(ScreenManager):
     pass
 
+class HelpScreen(Screen):
+    pass
 
 class StartScreen(Screen):
     pass
@@ -130,10 +132,13 @@ class NameSelectorScreen(Screen):
 
     def create_tech_names(self):
         namegrid = self.ids.NameGrid
-        for tech in self.tech_names:
-            btn = Button(text=f"{tech}", size_hint_y=None, height=30)
-            btn.bind(on_press=self.change_button_color)
-            namegrid.add_widget(btn)
+        if namegrid.children == []:
+            for tech in self.tech_names:
+                if tech == None:
+                    pass
+                btn = Button(text=f"{tech}", size_hint_y=None, height=30)
+                btn.bind(on_press=self.change_button_color)
+                namegrid.add_widget(btn)
             
 
 class ProcessingScreen(Screen):
@@ -141,6 +146,7 @@ class ProcessingScreen(Screen):
         app = App.get_running_app()
         app.send_mass_message()
         return super().on_enter(*args)
+
 
 
 

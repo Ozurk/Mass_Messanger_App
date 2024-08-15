@@ -8,8 +8,10 @@
     ReviewScreen:
     FinalReview:
     ProcessingScreen:
+    HelpScreen
 
 <StartScreen>
+    name: "StartScreen"
     BoxLayout: 
         orientation: "vertical"
         name: "StartScreen"
@@ -17,10 +19,12 @@
         Label:
             text: 'Core Mechanical Mass Messaging App'
             text_size: self.size
-            font_size: 30
+            font_size: 39
             halign: 'center'
             valign: 'middle'
             size_hint_y: .2
+        Image:
+            source: "Pictures\core pic.jpg"
         Button:
             size_hint_y: .3
             text: "Continue"
@@ -29,6 +33,7 @@
         Button:
             size_hint_y: .1
             text: "Help"
+            on_release: app.root.current = "HelpScreen"
 
 <NameSelectorScreen>
     name: "NameSelectorScreen"
@@ -37,6 +42,7 @@
         Label:
             size_hint_y: .1
             text: "Select the team members you would like to message"
+            font_size: 30
         BoxLayout:
             size_hint_y: .1
             Button:
@@ -49,14 +55,21 @@
                 id: NameGrid
                 size_hint_y: None
                 height: 3000
-                rows:1000
+                rows:100
                 cols:4
-        Button:
+        BoxLayout:
             size_hint_y: .15
-            text: "Continue"
-            background_color: 2, 2, 2, 1
-            color: (0, 0, 0, 1)
-            on_release: app.root.current = "ReviewScreen"
+            orientation: "horizontal"
+            Button:
+                text: "Back to Main Menu"
+                background_color: 2, 2, 2, 1
+                color: (0, 0, 0, 1)
+                on_release: app.root.current = "StartScreen"
+            Button:
+                text: "Continue"
+                background_color: 2, 2, 2, 1
+                color: (0, 0, 0, 1)
+                on_release: app.root.current = "ReviewScreen"
 
 <FinalReview>
     name: "FinalReview"
@@ -70,11 +83,18 @@
         
                 
         Label:
+            canvas.before:
+                Color:
+                    rgba: 2, 2, 2, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
             text_size: self.width, None
+            valign: "top"
+            text_size: self.size
             text: app.message
-            halign: 'center'
-            valign: "middle"
             font_size: 40
+            color: 0, 0, 0, 1
 
     BoxLayout:
         size_hint_y: .15
@@ -111,10 +131,10 @@
                     color: 2, 1, .75, 1
                     font_size: 26
                     text_size: self.size
+                    size_hint_y: .2
                 TextInput:
-                    padding:
+                    padding: 10
                     id: message_input
-                    size_hint_y: .4
         Button:
             size_hint_y: .2
             text: "continue"
@@ -140,5 +160,19 @@
         Button:
             size_hint_y: .2
             text: "Start Over"
-            on_press: app.root.current = "NameSelectorScreen"
+            on_press: app.root.current = "StartScreen"
 
+<HelpScreen>
+    name: 'HelpScreen'
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            size_hint_y: .2
+            text: "Help"
+            font_size: 45
+        Image:
+            source: "Pictures\Readme.png"
+        Button:
+            text: "Main Menu"
+            size_hint_y: .2
+            on_release: app.root.current = "StartScreen"
