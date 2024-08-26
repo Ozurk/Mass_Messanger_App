@@ -7,7 +7,7 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.textinput import TextInput
 from kivy.uix.scrollview import ScrollView
 from kivy.properties import StringProperty
-from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.uix.screenmanager import ScreenManager, Screen, RiseInTransition
 from kivy.uix.popup import Popup
 import pandas
 from twilio.rest import Client # comment this to engage the safety
@@ -69,7 +69,9 @@ class MassMessageApp(App):
         self.status = "Messages have been sent!"
 
     def build(self):
-        return MassMessage()
+        app = MassMessage()
+        app.transition = RiseInTransition()
+        return app
     
     
     def update_recipients_var(self):
