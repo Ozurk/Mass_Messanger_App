@@ -12,7 +12,4 @@ To use this program:
     * Make sure the phone numbers are formatted exactly like this: ########## no spaces or dashes*
 - If the app is not working, it is possible that the twilio account needs funded.
 - If the app is still not working, try checking to see if your twilio client SID or Auth Token are saved as environment variables.
-- Currently, there are hardly any exception handling or debugging capabilites.
-
-
-  
+- Please send me an email if you need any assitance.
